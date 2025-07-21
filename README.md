@@ -1,10 +1,6 @@
 # backend.py
 esercizio vacca
 
-Angelo Monteleone
-10:18 (0 minuti fa)
-a me
-
 Questo progetto contiene un piccolo backend in Python che espone via HTTP (porta 80) il nome host della macchina su cui è in esecuzione.
 
 Prerequisiti Python 3.6 o superiore
