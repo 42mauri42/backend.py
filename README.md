@@ -1,22 +1,7 @@
-# backend.py
-esercizio vacca
+Questo progetto contiene un semplice backend sviluppato in Python utilizzando il micro-framework Flask. Il servizio, una volta avviato, restituisce via HTTP il nome host della macchina su cui è in esecuzione. È pensato come esercizio base per testare un'applicazione Python in ambienti locali e containerizzati.
 
-Questo progetto contiene un piccolo backend in Python che espone via HTTP (porta 80) il nome host della macchina su cui è in esecuzione.
+Oltre alla possibilità di eseguire il codice localmente con Python 3.6 o superiore, è stato creato un Dockerfile per facilitare l’esecuzione tramite container. Il Dockerfile utilizza come immagine base python:3.11-slim, una versione leggera di Python adatta alla distribuzione. Al suo interno, copia il file main.py nella directory di lavoro /app, installa Flask con pip, espone la porta 5000 e imposta il comando di avvio dell’applicazione.
 
-Prerequisiti Python 3.6 o superiore
+Per costruire l'immagine Docker, è sufficiente posizionarsi nella cartella del progetto ed eseguire il comando docker build -t hostname-backend .. Una volta completata la build, si può avviare il container con docker run -p 8080:5000 hostname-backend, esponendo così l'applicazione sulla porta 8080 del proprio sistema. Accedendo a http://localhost:8080 dal browser o via curl, si riceverà in risposta il nome host del container o della macchina ospite.
 
-Git
-
-Accesso con permessi di root o sudo per bindare la porta 8080
-
-Installazione e configurazione Clona il repository sul tuo sistema
-
-bash git clone git@github.com:TUO_USERNAME/hostname-backend.git cd hostname-backend Crea un ambiente virtuale
-
-bash python3 -m venv venv Attiva l’ambiente virtuale
-
-bash source venv/bin/activate Installa le dipendenze
-
-bash pip install flask Avvio del server Avvia il backend sulla porta 80. Serve sudo (o root) per bindare la porta privilegiata:
-
-bash sudo python3 backend.py
+Questo approccio consente di eseguire l’applicazione in ambienti isolati e riproducibili, senza dipendere dalle librerie installate nel sistema operativo host. Il progetto è pertanto adatto sia per l'apprendimento dei concetti base del backend in Python, sia come primo passo verso lo sviluppo e il deploy di microservizi containerizzati.
